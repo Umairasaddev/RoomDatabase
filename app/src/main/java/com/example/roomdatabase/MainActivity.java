@@ -13,15 +13,17 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-TextView lbl;
+TextView lbl,data;
     EditText t1,t2,t3;
-    Button b1;
+    Button b1,b2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
 
+        b2 = findViewById(R.id.b2);
+        data = findViewById(R.id.dataholder);
         lbl = findViewById(R.id.lbl);
         t1 = findViewById(R.id.t1);
         t2 = findViewById(R.id.t2);
@@ -57,6 +59,27 @@ TextView lbl;
 
 
 
+            }
+        });
+
+
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                AppDatabase db = Room.databaseBuilder(getApplicationContext(),
+                        AppDatabase.class,"room_db").allowMainThreadQueries().build();
+
+                UserDao userDao = db.userDao();
+
+                List<User> users = userDao.getallusers();
+                String str="";
+
+                for (User user : users)
+                    str = str+ "\t" +user.getUid() + " " + user.getFirstName() + " " + user.getLastName() + "\n";
+
+
+                data.setText(str);
             }
         });
     }

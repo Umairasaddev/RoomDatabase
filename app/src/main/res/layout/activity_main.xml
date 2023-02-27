@@ -12,18 +12,21 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:id="@+id/t1"
-        android:layout_marginBottom="10dp"
+
+        android:layout_marginTop = "40dp"
+        android:layout_marginBottom="20dp"
         android:hint="Record Id"/>
 <EditText
     android:layout_width="300dp"
     android:layout_height="wrap_content"
     android:id="@+id/t2"
-    android:layout_marginBottom="10dp"
+    android:layout_marginBottom="20dp"
     android:hint="First Name"/>
 <EditText
     android:layout_width="300dp"
     android:layout_height="wrap_content"
     android:id="@+id/t3"
+    android:layout_marginBottom="20dp"
     android:hint="Last Name"/>
 
 
@@ -40,4 +43,27 @@
         android:layout_height="20dp"
         android:layout_marginTop="10dp"
         android:id="@+id/lbl"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fetch Data"
+        android:id="@+id/b2"
+        android:padding="10dp"/>
+    
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:background="@color/cardview_shadow_start_color">
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="25sp"
+            android:id="@+id/dataholder"/>
+        
+        
+    </ScrollView>
 </LinearLayout>
